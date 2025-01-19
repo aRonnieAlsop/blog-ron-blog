@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import API from "./api";
 
-function App() {
+const App = () => {
+  const [posts, setPosts] = useState([]);
+
+  // Fetch posts from the backend
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await API.get("/posts"); 
+        setPosts(response.data);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>My Blog</h1>
+      {posts.length > 0 ? (
+        posts.map((post) => (
+          <div key={post._id}>
+            <h2>{post.title}</h2>
+            <p>{post.content}</p>
+          </div>
+        ))
+      ) : (
+        <p>No blog posts available.</p>
+      )}
     </div>
   );
-}
+};
 
 export default App;
