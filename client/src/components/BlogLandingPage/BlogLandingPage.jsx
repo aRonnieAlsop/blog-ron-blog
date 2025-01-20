@@ -32,7 +32,7 @@ const BlogLandingPage = () => {
             </p>
             <h2>{post.title}</h2>
             <p className="blog-post-content">
-              {expandedPosts[post.id]
+              {expandedPosts[post._id]
                 ? post.blog_content // Show full content if expanded
                 : post.synopsis || `${post.blog_content.slice(0, 100)}...`} {/* Show a synopsis of the blog post */}
             </p>

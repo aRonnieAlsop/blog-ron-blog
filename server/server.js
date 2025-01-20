@@ -1,9 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-  return res.status(400).json({ error: "Invalid blog post ID" });
-}
-
 const dotenv = require("dotenv");
 const postRoutes = require("./routes/postRoutes");
 const blogRoutes = require("./routes/blogRoutes");
