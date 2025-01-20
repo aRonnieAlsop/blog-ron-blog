@@ -21,7 +21,6 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 // Routes
-app.use("/api/posts", postRoutes);
 app.use("/api/blogs", blogRoutes);
 
 // Fallback route for undefined routes
