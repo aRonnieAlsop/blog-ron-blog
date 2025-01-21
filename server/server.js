@@ -2,16 +2,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const blogRoutes = require("./routes/blogRoutes");
-const path = require('path'); 
+const path = require('path');  // This is correct, no need to install.
 
-dotenv.config();
+dotenv.config();  // Load environment variables
 
 const app = express();
 const cors = require("cors");
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;  // Ensure default port if not provided by Heroku
 
 // Middleware 
-app.use(cors()); //CORS enable
+app.use(cors()); // CORS enable
 app.use(express.json()); // Parse JSON payloads
 
 // MongoDB connection
@@ -33,7 +33,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
-
 
 // Fallback route for undefined routes
 app.use((req, res) => {
