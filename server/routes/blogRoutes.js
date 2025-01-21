@@ -1,6 +1,6 @@
 const express = require("express");
 const Blog = require("../models/Blog");
-const { validateId } = require('../middleware'); 
+// const { validateId } = require('../middleware'); 
 const router = express.Router();
 
 // Fetch all blog posts
@@ -13,20 +13,18 @@ router.get("/", async (req, res) => {
   }
 });
 
-// API route to fetch a single blog post by ID
-router.get('/blogs/:id', validateId, (req, res) => {  
-  const { id } = req.params;
-  const query = 'SELECT * FROM blog_posts WHERE id = ?';
-  db.get(query, [id], (err, row) => {
-      if (err) {
-          console.error('Error fetching the blog post:', err.message);
-          res.status(500).send('Error fetching the blog post');
-      } else if (!row) {
-          res.status(404).send('Blog post not found');
-      } else {
-          res.json(row); // Send the blog post
-      }
-  });
+// Get a single blog by customId
+router.get('/:customId', async (req, res) => {
+  try {
+    const blog = await Blog.findOne({ customId: req.params.customId });
+    if (!blog) {
+      return res.status(404).json({ message: 'Blog not found' });
+    }
+    res.json(blog);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
 });
 
 module.exports = router;

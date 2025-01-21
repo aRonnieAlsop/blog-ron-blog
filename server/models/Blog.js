@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const blogSchema = new mongoose.Schema({
+  customId: { 
+    type: String, 
+    required: true, 
+    unique: true 
+  },
   title: {
     type: String,
     required: true,
