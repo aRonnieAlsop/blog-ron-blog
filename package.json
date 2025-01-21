@@ -1,0 +1,9 @@
+{
+    "name": "blog-ron-blog",
+    "private": true,
+    "scripts": {
+      "start": "node server/server.js"
+    },
+    "dependencies": {}
+  }
+  
