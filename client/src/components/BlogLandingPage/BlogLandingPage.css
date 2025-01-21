@@ -28,6 +28,12 @@
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: space-between; 
+    height: 100%;
+
   }
   
   .blog-image {
@@ -49,12 +55,12 @@
 
 
   .blog-post h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin: 1rem 0;
   }
   
   .blog-post p {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     color: #555;
   }
   
@@ -64,7 +70,7 @@
     border: 1px solid black;
     text-decoration: none;
     padding: .3rem 1.5rem;
-    margin-left: 4rem;
+    align-items: center;
   }
   
   .read-more-button:hover {
@@ -109,7 +115,7 @@
   background: white;
   padding: 20px;
   border-radius: 8px;
-  width: 190%; /* Take up 90% of the screen width */
+  width: 90%; /* Take up 90% of the screen width */
   max-width: 3000px; /* Optionally set a max-width for very large screens */
   overflow-y: auto;
   position: relative;
