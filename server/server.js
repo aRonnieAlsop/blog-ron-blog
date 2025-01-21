@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const blogRoutes = require("./routes/blogRoutes");
-const blogPostRoutes = require('./routes/blogPostRoutes');
+
 
 dotenv.config();
 
@@ -22,7 +22,6 @@ mongoose
 
 // Routes
 app.use("/api/blogs", blogRoutes);
-app.use("/api/blogs/:customId", blogPostRoutes);
 
 
 // Fallback route for undefined routes

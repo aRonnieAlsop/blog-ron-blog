@@ -1,6 +1,5 @@
 const express = require("express");
 const Blog = require("../models/Blog");
-// const { validateId } = require('../middleware'); 
 const router = express.Router();
 
 // Fetch all blog posts
