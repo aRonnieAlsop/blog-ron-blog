@@ -34,7 +34,7 @@ const BlogLandingPage = () => {
   return (
     <div className="blog-container">
       <div className="title-wrapper">
-        <h1 className="blog-page-title">A Blog</h1>
+        <h1 className="blog-page-title">In the Shadow of the Monolith</h1>
       </div>
       <div className="blog-posts">
         {blogPosts.map((post) => (
